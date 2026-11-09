@@ -1,0 +1,26 @@
+Receiver noise figure: 6 dB
+ Bandwidth (kHz)   Noise floor (dBm)   Minimum signal (dBm)
+              10              -128.0                 -118.0
+             200              -115.0                 -105.0
+           2,000              -105.0                  -95.0
+          20,000               -95.0                  -85.0
+
+Maximum bandwidth for a -100 dBm signal at 10 dB SNR: 631.0 kHz
+
+Receiver noise figure: 3 dB
+ Bandwidth (kHz)   Noise floor (dBm)   Minimum signal (dBm)
+              10              -131.0                 -121.0
+             200              -118.0                 -108.0
+           2,000              -108.0                  -98.0
+          20,000               -98.0                  -88.0
+
+Maximum bandwidth for a -100 dBm signal at 10 dB SNR: 1,258.9 kHz
+
+Receiver noise figure: 12 dB
+ Bandwidth (kHz)   Noise floor (dBm)   Minimum signal (dBm)
+              10              -122.0                 -112.0
+             200              -109.0                  -99.0
+           2,000               -99.0                  -89.0
+          20,000               -89.0                  -79.0
+
+Maximum bandwidth for a -100 dBm signal at 10 dB SNR: 158.5 kHz
