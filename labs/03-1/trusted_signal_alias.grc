@@ -1,0 +1,118 @@
+options:
+  parameters:
+    id: trusted_signal_alias
+    title: Lab 3.1 - Your First Flowgraph
+    generate_options: qt_gui
+    output_language: python
+  states:
+    coordinate:
+    - 8
+    - 8
+    rotation: 0
+    state: enabled
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    value: '1000000'
+  states:
+    coordinate:
+    - 190
+    - 8
+    rotation: 0
+    state: enabled
+- name: tone_freq
+  id: variable
+  parameters:
+    value: '100000'
+  states:
+    coordinate:
+    - 390
+    - 8
+    rotation: 0
+    state: enabled
+- name: tone
+  id: analog_sig_source_x
+  parameters:
+    type: complex
+    samp_rate: samp_rate
+    freq: tone_freq
+    waveform: analog.GR_COS_WAVE
+    amp: '1'
+  states:
+    coordinate:
+    - 8
+    - 125
+    rotation: 0
+    state: enabled
+- name: noise
+  id: analog_noise_source_x
+  parameters:
+    type: complex
+    noise_type: analog.GR_GAUSSIAN
+    amp: '0.1'
+    seed: '3'
+  states:
+    coordinate:
+    - 8
+    - 290
+    rotation: 0
+    state: enabled
+- name: add
+  id: blocks_add_xx
+  parameters:
+    type: complex
+    num_inputs: '2'
+  states:
+    coordinate:
+    - 255
+    - 170
+    rotation: 0
+    state: enabled
+- name: throttle
+  id: blocks_throttle2
+  parameters:
+    type: complex
+    samples_per_second: samp_rate
+  states:
+    coordinate:
+    - 410
+    - 170
+    rotation: 0
+    state: enabled
+- name: spectrum
+  id: qtgui_freq_sink_x
+  parameters:
+    type: complex
+    fftsize: '1024'
+    bw: samp_rate
+    fc: '0'
+    ymin: '-100'
+    ymax: '10'
+    grid: 'True'
+  states:
+    coordinate:
+    - 650
+    - 170
+    rotation: 0
+    state: enabled
+connections:
+- - tone
+  - '0'
+  - add
+  - '0'
+- - noise
+  - '0'
+  - add
+  - '1'
+- - add
+  - '0'
+  - throttle
+  - '0'
+- - throttle
+  - '0'
+  - spectrum
+  - '0'
+metadata:
+  file_format: 1
+  grc_version: 3.10.12.0
