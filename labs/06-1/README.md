@@ -7,3 +7,5 @@
 The confusion counts demonstrate a threshold chosen on the same out-of-fold scores. Use a separate final test set for an independent operating-point evaluation.
 
 Reference run with scikit-learn 1.8.0, NumPy 2.3.5 and SciPy 1.17.0 returned ROC AUC 0.887, average precision 0.475 and prevalence 0.063. At threshold 0.40, the counts were 11 true positives, 11 false positives, 27 false negatives and 551 true negatives. These results differ slightly from the printed example.
+
+To reproduce that reference run, use Python 3.12 and install the pinned dependencies in a fresh virtual environment with `python -m pip install -r requirements-reference.txt`. Then run `python evaluate.py`.
